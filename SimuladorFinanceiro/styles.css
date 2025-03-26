@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    text-align: center;
+}
+
+nav{
+    padding: 30px 30px;
+    background-color: rgb(159, 177, 197, 1);
+    display: flex;
+    justify-content: space-around;
+    font-family: "Inconsolata", monospace;
+    align-items: center;
+    color: rgb(24, 30, 50, 1);
+}
+
+.logo{
+    font-weight: 800;
+    font-size: 50px;
+}
+
+.nav_itens{
+    list-style: none;
+    display: flex;
+}
+
+.nav_itens>li>a {
+    padding-left: 30px;
+    color: rgb(24, 30, 50, 1);
+    text-decoration: none;
+    font-size: 23px;
+}
+
+.nav_itens>li>a:hover{
+    color:white;
+    transition: 0.5s background;
+}
+
+.entrar{
+    padding: 10px 30px;
+    background-color:rgb(182, 211, 242);
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-family: "Inconsolata", monospace;
+    cursor: pointer;
+    transition: 1s background;
+}
+
+
+.entrar:hover{
+    background-color:rgb(106, 131, 167) ;
+    color: rgb(212, 225, 254);
+    transition: 0.85s background;
+}
+
+.registrar{
+        padding: 10px 30px;
+        background-color: rgb(77, 92, 140);
+        border: none;
+        color: #fff;
+        border-radius: 10px;
+        font-family: "Inconsolata", monospace;
+        cursor: pointer;
+        transition: 1s background;
+}
+
+.registrar:hover {
+    background-color: rgb(22, 25, 44);
+    color: rgb(183, 201, 238);
+    transition: 1s background;
+}
+
+.calculando{
+ font-weight: 600;
+ font-size: 30px;
+font-family: "Inconsolata", monospace;
+color: rgb(39, 53, 96);
+}
+
+
+.estilo_inputs{
+    font-family: "Inconsolata", monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
+input{
+    border-radius: 8px;
+    background-color: rgb(215, 224, 245);
+    border: none;
+    padding: 6px 6px;
+} 
+
+.botao_calculo{
+        padding: 16px 31px;
+        background-color: rgb(105, 209, 143);
+        border: none;
+        color: #fff;
+        border-radius: 11px;
+        font-family: "Inconsolata", monospace;
+        font-size: 25px;
+        cursor: pointer;
+        transition: 1s background;
+}
+
+
+.botao_calculo:hover{
+    background-color: rgb(42, 169, 57);
+        color: rgb(249, 250, 253);
+        transition: 0.75s background;
+}
+
+.mensagem01{
+        font-family: "Inconsolata", monospace;
+        font-size: 20px;
+        text-align: center;
+        margin-left: 50px;
+        margin-right: 50px;
+        color: rgb(239, 114, 114);
+}
+.mensagem02 {
+    font-family: "Inconsolata", monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: rgb(239, 114, 114);
+}
+.mensagem03 {
+    font-family: "Inconsolata", monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: rgb(124, 235, 129);
+}
+.mensagem04 {
+    font-family: "Inconsolata", monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: rgb(136, 237, 141);
+}

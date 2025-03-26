@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro ClimeTech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">ClimeTech</div>
+        <div class="links">
+            <ul class="nav_itens">
+                <li> <a href="#">Sobre nós</a></li>
+                <li> <a href="#">Simular</a></li>
+                <li> <a href="#">Dados do Projeto</a></li>
+            </ul>
+
+        </div>
+            <div class="botoes">
+                <button href="#" class="entrar">Entrar</button>
+                <button  href="#" class="registrar">Registrar-se</button>
+            </div>
+    </nav>
+
+
+    <br> <br> <br> <br>
+
+    <h2 class="calculando"><u>Calcule aqui o seu LUCRO!</u></h1>
+
+        <br><br><br>
+
+<div class="estilo_inputs">
+
+    <label for="lucroIngressoIpt">Digite o Lucro Líquido com ingressos em 1 ano: </label>
+    R$      <input type="text" id="lucroIngressoIpt" placeholder="Digite o lucro">
+    <br><br>
+
+    <label for="lucroParceriasIpt">Digite o Lucro Líquido com parcerias em 1 ano: </label>
+    R$      <input type="text" id="lucroParceriasIpt" placeholder="Digite o lucro">
+    <br><br><br>
+
+    <button class="botao_calculo" onclick="calculaLucro()">Calcular Lucro!</button>
+
+    <br><br><br><br>
+
+</div>
+
+    <div>
+        <h2 class="mensagem01" id="mensagem1"></h2>
+        <h2 class="mensagem02" id="mensagem2"></h2>
+        <h2 class="mensagem03" id="mensagem3"></h2>
+        <h2 class="mensagem04" id="mensagem4"></h2>
+    </div>
+
+</body>
+
+<script>
+
+    function calculaLucro() {
+        var lucroIngressoMes = Number(lucroIngressoIpt.value) / 12
+        var lucroParceriaMes = Number(lucroParceriasIpt.value) / 12
+
+        var lucroIngressoAnual = Number(lucroIngressoIpt.value)
+        var lucroParceriaAnual = Number(lucroParceriasIpt.value)
+
+        var porcentagemIngressoMes = lucroIngressoMes * 1.1
+        var porcentagemParceriaMes = lucroParceriaMes * 1.3
+
+        var porcentagemIngressoAnual = lucroIngressoAnual * 1.1
+        var porcentagemParceriaAnual = lucroParceriaAnual * 1.3
+
+        mensagem1.innerHTML = `Sem nosso projeto, você faturou R$${lucroIngressoMes.toFixed(2)} por mês e R$${lucroIngressoAnual.toFixed(2)} anualmente com venda de ingressos <br><br>`
+        mensagem2.innerHTML = `Sem nosso projeto, você faturou R$${lucroParceriaMes.toFixed(2)} por mês e R$${lucroParceriaAnual.toFixed(2)} anualmente com parcerias  <br><br><br><br>`
+
+        mensagem3.innerHTML = `Com nosso projeto, você faturou R$${porcentagemIngressoMes.toFixed(2)} por mês e R$${(porcentagemIngressoAnual * 12).toFixed(2)} anualmente com venda de ingressos  <br><br>`
+        mensagem4.innerHTML = `Com nosso projeto, você faturou R$${porcentagemParceriaMes.toFixed(2)} por mês e R$${(porcentagemParceriaAnual * 12).toFixed(2)} anualmente com parcerias  <br><br><br>`
+    }
+
+</script>
+
+</html>
