@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira Projeto de PI (Sprint 1 — Victor Duarte)</title>
+</head>
+<body
+style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       background-color: #3c4c80;
+       color: white;">
+
+    <h1>ClimeTech</h1>
+
+    <p>Descubra a economia dos gastos ao utilizar os serviços automatizados da ClimeTech.</p>
+    <p>
+        A ClimeTech dispõe um sistema automatizado que monitora e regula o acionamento dos equipamentos de climatização pelo estádio.
+        Este site auxilia a calcular a economia surtida na operação dos equipamentos.
+    </p>
+    <br>
+    <label for="ipt_area">Insira a área do estádio:</label>
+    <br>
+    <input type="number" id="ipt_area" placeholder="Digite aqui"> m²
+    <br>
+    <br>
+    <label for="select_qtd_espectador">Selecione a quantidade de espectadores no evento:</label>
+    <select id="select_qtd_espectador">
+        <option value="" disabled selected>Escolha uma opção</option>
+        <option value="potencia_baixa">de 3000 ou 10000</option>
+        <option value="potencia_media">de 10000 a 30000</option>
+        <option value="potencia_alta">de 30000 a 70000</option>
+        <option value="potencia_altissima">de 70000 ou mais</option>
+    </select>
+    <br>
+    <br>
+    <label for="ipt_tempo">Insira o tempo do evento:</label>
+    <br>
+    <input type="number" id="ipt_tempo" placeholder="Digite aqui"> minutos
+    <br>
+    <br>
+   
+    <button onclick="calcular()" style="background-color:#181E32; color: white; border-radius: 10px;">
+        <h3>Calcular Economia</h3>
+    </button>
+
+    <h3 id="h3_resultado"></h3>
+   
+</body>
+
+<script>
+    function calcular(){
+        var area = ipt_area.value
+            var qtd_climatizador = Math.round(area / 400)       //Considerando que cada 400 m² precisa de 1 climatizador.
+        var potencia_climatizador = select_qtd_espectador.value //A potencia do climatizador é baseada no número de espectadores
+        var tempo_evento = ipt_tempo.value / 60                 //Convertendo o tempo de minutos para horas
+        
+        var preco_kWh = 0.63
+        var gasto_normal = qtd_climatizador * tempo_evento * 0.63
+
+        h3_resultado.innerHTML =
+        `
+        Pela área do estádio, serão necessários aproximadamente ${qtd_climatizador} climatizadores pelo estádio.
+        <br>
+        `
+
+        if (area == "" || potencia_climatizador == "" || tempo_evento == "") {
+            h3_resultado.innerHTML = "Por favor, preencha todos os campos."
+        } else {
+            if (potencia_climatizador == 'potencia_baixa') {
+                var consumoEnergiaPotBaixa = 0.7    //Considerando que a potência baixa é de 700 W, ou seja, 0.7 kW.
+                h3_resultado.innerHTML += 
+                `Pela quantidade de espectadores, a potência dos climatizadores deverá ser baixa.
+                <br>
+                O gasto de energia sem o monitoramento da ClimeTech seria de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotBaixa).toFixed(2)}.
+                <br>
+                Com a proposta da ClimeTech de reduzir os gastos com energia em 20%, o seu novo gasto será de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotBaixa * 0.8).toFixed(2)}.
+                <br>
+                Isso é uma economia de R$${((qtd_climatizador * gasto_normal * consumoEnergiaPotBaixa).toFixed(2) - (qtd_climatizador * gasto_normal * consumoEnergiaPotBaixa * 0.8).toFixed(2)).toFixed(2)}.
+                `;
+            } else if (potencia_climatizador == 'potencia_media') {
+                var consumoEnergiaPotMedia = 0.9    //Considerando que a potência média é de 900 W, ou seja, 0.9 kW.
+                h3_resultado.innerHTML += 
+                `Pela quantidade de espectadores, a potência dos climatizadores deverá ser média.
+                <br>
+                O gasto de energia sem o monitoramento da ClimeTech seria de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotMedia).toFixed(2)}.
+                <br>
+                Com a proposta da ClimeTech de reduzir os gastos com energia em 20%, o seu novo gasto será de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotMedia * 0.8).toFixed(2)}.
+                <br>
+                Isso é uma economia de R$${((qtd_climatizador * gasto_normal * consumoEnergiaPotMedia).toFixed(2) - (qtd_climatizador * gasto_normal * consumoEnergiaPotMedia * 0.8).toFixed(2)).toFixed(2)}.
+                `;
+            } else if (potencia_climatizador == 'potencia_alta') {
+                var consumoEnergiaPotAlta = 1.2    //Considerando que a potência média é de 1200 W, ou seja, 1.2 kW.
+                h3_resultado.innerHTML += 
+                `Pela quantidade de espectadores, a potência dos climatizadores deverá ser alta.
+                <br>
+                O gasto de energia sem o monitoramento da ClimeTech seria de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotAlta).toFixed(2)}.
+                <br>
+                Com a proposta da ClimeTech de reduzir os gastos com energia em 20%, o seu novo gasto será de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotAlta * 0.8).toFixed(2)}.
+                <br>
+                Isso é uma economia de R$${((qtd_climatizador * gasto_normal * consumoEnergiaPotAlta).toFixed(2) - (qtd_climatizador * gasto_normal * consumoEnergiaPotAlta * 0.8).toFixed(2)).toFixed(2)}.
+                `;
+            } else if (potencia_climatizador == 'potencia_altissima') {
+                var consumoEnergiaPotAltissima = 1.8    //Considerando que a potência média é de 1800 W, ou seja, 1.8 kW.
+                h3_resultado.innerHTML += 
+                `Pela quantidade de espectadores, a potência dos climatizadores deverá ser altíssima.
+                <br>
+                O gasto de energia sem o monitoramento da ClimeTech seria de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotAltissima).toFixed(2)}.
+                <br>
+                Com a proposta da ClimeTech de reduzir os gastos com energia em 20%, o seu novo gasto será de R$${(qtd_climatizador * gasto_normal * consumoEnergiaPotAltissima * 0.8).toFixed(2)}.
+                <br>
+                Isso é uma economia de R$${((qtd_climatizador * gasto_normal * consumoEnergiaPotAltissima).toFixed(2) - (qtd_climatizador * gasto_normal * consumoEnergiaPotAltissima * 0.8).toFixed(2)).toFixed(2)}.
+                `;
+            }
+        }
+    }
+</script>
+
+</html>

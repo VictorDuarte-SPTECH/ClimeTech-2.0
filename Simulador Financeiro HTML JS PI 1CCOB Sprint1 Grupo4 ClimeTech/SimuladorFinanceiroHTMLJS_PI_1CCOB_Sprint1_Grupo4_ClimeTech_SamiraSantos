@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+
+<body style="text-align: center; background-color: cadetblue;">
+    <h1 style="font-family: Arial, Helvetica, sans-serif; color: darkblue;">
+        <p><b>Clime Tech</b></p>
+        <p>Quantos sensores DHT11 de temperatura e umidade
+            <br> serão necessários no estádio?
+        </p>
+    </h1>
+
+    <label style="font-family: Arial, Helvetica, sans-serif;">
+        <b>Insira a área total do estádio m²:</b></label>
+    <br>
+    <input style="border-radius: 15px;" type="text" id="ipt_area_estadio">
+    <br><br>
+
+    <label style="font-family: Arial, Helvetica, sans-serif;">
+        <b>Quantos m² um sensor cobre?</b></label>
+    <br>
+    <input style="border-radius: 15px;" type="text" id="ipt_area_coberta_sensor">
+    <br><br>
+
+
+    <button style="border-radius: 15px;" onclick="calcular()"><b>CALCULAR</b></button>
+    <div id="div_resposta"></div>
+
+</body>
+<script>
+    function calcular() {
+
+        var areaEstadio = Number (ipt_area_estadio.value)
+        var areaCobertaSensor = Number (ipt_area_coberta_sensor.value)
+        var total = areaEstadio / areaCobertaSensor
+    
+
+        if (areaEstadio >= 7000 && areaEstadio <= 12000) {
+            div_resposta.innerHTML = `<h2> <b>
+             Serão necessários ${total.toFixed(0)} sensores DHT11
+             para uma área de ${areaEstadio}m²`
+        } else {
+            alert(`Área inválida! A área de um estádio de futebol é de no mínimo 7000m2 `)
+        }
+
+    
+        }
+</script>
+
+</html>
