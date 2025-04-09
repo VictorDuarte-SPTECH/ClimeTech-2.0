@@ -5,3 +5,5 @@ O que precisa mudar:
   - background;
   - hover dos botões.
 - adicionar footer;
+- adicionar a logo da ClimeTech no header;
+- talvez mudar o type dos inputs para number ao invés de text.
