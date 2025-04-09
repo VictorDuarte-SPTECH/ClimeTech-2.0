@@ -79,11 +79,16 @@
         var porcentagemIngressoAnual = lucroIngressoAnual * 1.1
         var porcentagemParceriaAnual = lucroParceriaAnual * 1.3
 
-        mensagem1.innerHTML = `Sem nosso projeto, você lucra R$${lucroIngressoMes.toFixed(2)} por mês e R$${lucroIngressoAnual.toFixed(2)} anualmente com venda de ingressos.<br><br>`
-        mensagem2.innerHTML = `Sem nosso projeto, você lucra R$${lucroParceriaMes.toFixed(2)} por mês e R$${lucroParceriaAnual.toFixed(2)} anualmente com parcerias.<br><br><br><br>`
+        if (lucroIngressoAnual == "" || lucroParceriaAnual == "") {
+            mensagem1.innerHTML = "<b>Por favor, preencha todos os campos.</b>"
+        }
+        else {
+            mensagem1.innerHTML = `Sem nosso projeto, você lucra R$${lucroIngressoMes.toFixed(2)} por mês e R$${lucroIngressoAnual.toFixed(2)} anualmente com venda de ingressos.<br><br>`
+            mensagem2.innerHTML = `Sem nosso projeto, você lucra R$${lucroParceriaMes.toFixed(2)} por mês e R$${lucroParceriaAnual.toFixed(2)} anualmente com parcerias.<br><br><br><br>`
 
-        mensagem3.innerHTML = `Com nosso projeto, você lucrará R$${porcentagemIngressoMes.toFixed(2)} por mês e R$${(porcentagemIngressoAnual * 12).toFixed(2)} anualmente com venda de ingressos.<br><br>`
-        mensagem4.innerHTML = `Com nosso projeto, você lucrará R$${porcentagemParceriaMes.toFixed(2)} por mês e R$${(porcentagemParceriaAnual * 12).toFixed(2)} anualmente com parcerias.<br><br><br>`
+            mensagem3.innerHTML = `Com nosso projeto, você lucrará R$${porcentagemIngressoMes.toFixed(2)} por mês e R$${(porcentagemIngressoAnual * 12).toFixed(2)} anualmente com venda de ingressos.<br><br>`
+            mensagem4.innerHTML = `Com nosso projeto, você lucrará R$${porcentagemParceriaMes.toFixed(2)} por mês e R$${(porcentagemParceriaAnual * 12).toFixed(2)} anualmente com parcerias.<br><br><br>`
+        }
     }
 
 </script>
