@@ -3,5 +3,5 @@ O que precisa mudar:
 - cores:
   - header;
   - background;
-  - botões.
+  - hover dos botões.
 - adicionar footer;
