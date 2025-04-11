@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+
+<body style="text-align: center; font-family: 'Times New Roman', Times, serif; background-color: rgb(48, 74, 99); color: azure;">
+    <h1>Clime Tech</h1>
+    <h2>Retorno Financeiro do Projeto</h2>
+    <br>
+    <label for="ipt_setores">Quantidade de setores do estádio:</label>
+    <br>
+    <input style="border-radius:15px;" type="text" id="ipt_setores">
+    <br>
+    <br>
+    <label for="ipt_custos">Custo Operacional Atual (por ano):</label>
+    <br>
+    <input style="border-radius:15px;" type="text" id="ipt_custos">
+    <br>
+    <br>
+    <label for="ipt_lucro">Ganho Financeiro Atual (por ano):</label>
+    <br>
+    <input style="border-radius:15px;"type="text" id="ipt_lucro"><br>
+    <br>
+    <button style="border-radius:15px;" onclick="porcentagemRetorno()">Calcular Retorno</button>   
+    <h3 id="h3_porcentagem"></h3> 
+</body>
+
+<script>
+    function porcentagemRetorno(){
+
+        var setores = Number(ipt_setores.value);
+        var custo = Number(ipt_custos.value);
+        var ganho = Number(ipt_lucro.value);
+        var custoFuturo = (custo + (custo * 0.15));
+        var ganhoFuturo = (ganho + (ganho * 0.30));
+        var sensores = setores * 2;
+        var valor_equipamentos = sensores * 150;
+        var maoDeObra = (6000 * 7) * 12;
+        var investido = valor_equipamentos + maoDeObra;
+        var retorno = (((ganhoFuturo - custoFuturo) / investido) * 100);
+
+        h3_porcentagem.innerHTML = `O valor investido no projeto da Clime Tech para climatização do estádio será de R$${investido} <br> 
+        E o retorno do projeto em um ano será de ${retorno.toFixed(2)}%!`
+
+    }
+
+    //Anna Luiza Yassue Segarra Maegaki, RA: 04251020
+</script>
+
+</html>
